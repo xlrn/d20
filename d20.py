@@ -4,10 +4,19 @@ import argparse
 from random import randint
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-th', '--threshold', default=False, dest='threshold')
-parser.add_argument('-t', '--task', default=None, dest='task')
-parser.add_argument('-s', '--stat', default=None, dest='stat')
+parser.add_argument('-th', 
+	default=False, 
+	dest='threshold',
+	help='entering any value will give you a threshold')
+parser.add_argument('-t',  
+	dest='task',
+	help='the task that must be completed')
+parser.add_argument('-s',
+	dest='stat',
+	help='stat being used')
+
 args = parser.parse_args()
+
 
 roll = randint(1, 20)
 print 'roll: {}'.format(roll)
