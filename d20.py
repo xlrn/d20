@@ -14,12 +14,26 @@ parser.add_argument('-t',
 parser.add_argument('-s',
 	dest='stat',
 	help='stat being used')
+parser.add_argument('-d',
+	dest='dice',
+	help='number of dice')
 
 args = parser.parse_args()
 
 
-roll = randint(1, 20)
-print 'roll: {}'.format(roll)
+def rollType(sides):
+	return randint(1, sides)
+
+def roll(n = 1, sides = 20):
+	return tuple(rollType(sides) for _ in range(n))	
+
+if args.dice:
+	dice = roll(n = int(args.dice))
+	print 'roll: {}'.format(dice)
+else: 
+	dice = randint(1, 20)
+	print 'roll: {}'.format(dice)
+
 
 if args.threshold:
 	num = randint(1, 20)
