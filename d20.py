@@ -29,13 +29,15 @@ def roll(n = 1, sides = 20):
 
 if args.dice:
 	dice = roll(n = int(args.dice))
-	print 'roll: {}'.format(dice)
+	print 'roll: {}, sum: {}'.format(dice, sum(dice))
 else: 
 	dice = randint(1, 20)
 	print 'roll: {}'.format(dice)
 
-
-if args.threshold:
+if args.threshold and args.dice:
+	num = roll(n = int(args.dice))
+	print 'threshold: {}'.format(sum(num))
+else:
 	num = randint(1, 20)
 	print 'threshold: {}'.format(num)
 
