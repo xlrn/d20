@@ -3,7 +3,10 @@
 import argparse
 from random import randint
 
+#initialize parser
 parser = argparse.ArgumentParser()
+
+#arguments
 parser.add_argument('-th', 
 	default=False, 
 	dest='threshold',
@@ -20,13 +23,14 @@ parser.add_argument('-d',
 
 args = parser.parse_args()
 
-
+#functions
 def rollType(sides):
 	return randint(1, sides)
 
 def roll(n = 1, sides = 20):
 	return tuple(rollType(sides) for _ in range(n))	
 
+#shit
 if args.dice:
 	dice = roll(n = int(args.dice))
 	print 'roll: {}, sum: {}'.format(dice, sum(dice))
