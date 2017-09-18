@@ -9,7 +9,6 @@ parser.add_argument('-t', '--task', default=None, dest='task')
 parser.add_argument('-s', '--stat', default=None, dest='stat')
 args = parser.parse_args()
 
-
 roll = randint(1, 20)
 print 'roll: {}'.format(roll)
 
