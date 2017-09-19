@@ -41,7 +41,7 @@ else:
 if args.threshold and args.dice:
 	num = roll(n = int(args.dice))
 	print 'threshold: {}'.format(sum(num))
-else:
+elif args.threshold:
 	num = randint(1, 20)
 	print 'threshold: {}'.format(num)
 
