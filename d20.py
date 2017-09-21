@@ -14,12 +14,15 @@ parser.add_argument('-th',
 parser.add_argument('-t',  
 	dest='task',
 	help='the task that must be completed')
-parser.add_argument('-s',
+parser.add_argument('-st',
 	dest='stat',
 	help='stat being used')
 parser.add_argument('-d',
 	dest='dice',
 	help='number of dice')
+parser.add_argument('-s',
+	dest='sides',
+	help='number of sides for dice')
 
 args = parser.parse_args()
 
@@ -31,10 +34,16 @@ def roll(n = 1, sides = 20):
 	return tuple(rollType(sides) for _ in range(n))	
 
 #shit
-if args.dice:
+if args.dice and args.sides:
+	dice = roll(n = int(args.dice), sides = int(args.sides))
+	print 'roll: {}, sum: {}'.format(dice, sum(dice))
+elif args.sides: 
+	dice = roll(sides = int(args.sides))
+	print 'roll: {}, sum: {}'.format(dice, sum(dice))
+elif args.dice:
 	dice = roll(n = int(args.dice))
 	print 'roll: {}, sum: {}'.format(dice, sum(dice))
-else: 
+else:
 	dice = randint(1, 20)
 	print 'roll: {}'.format(dice)
 
